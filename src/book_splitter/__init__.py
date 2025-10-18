@@ -1,1 +1,0 @@
-"""\n书籍章节拆分器 - 主包\n\n一个高效的markdown书籍文档处理工具，能够将大型书籍文档按章节和小节拆分为独立文件，\n并创建带有双向链接的导航系统。支持自动生成Obsidian兼容的标签元数据。\n"""\n\n# 顶部元信息\n__version__ = "1.0.1"\n__author__ = "Book Splitter Team"\n__email__ = "team@booksplitter.com"\n\nfrom .main import BookSplitter\nfrom .config import ProcessingConfig\n\n__all__ = ["BookSplitter", "ProcessingConfig"]
