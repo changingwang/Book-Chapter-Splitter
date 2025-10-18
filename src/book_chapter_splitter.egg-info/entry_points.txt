@@ -1,0 +1,2 @@
+[console_scripts]
+book-splitter = book_splitter.cli:main
