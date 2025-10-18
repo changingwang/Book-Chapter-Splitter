@@ -1,0 +1,32 @@
+# 书籍章节拆分器默认配置文件
+#
+# 文件名格式说明：
+# - 章节文件：第X章_标题.md
+# - 小节文件：X.Y_标题.md (X=章节编号, Y=小节编号)
+#
+# 更新日期：2025-10-18
+
+# 基本文件配置
+source_file: "full.md"
+output_dir: "output"
+toc_filename: "目录.md"
+
+# 处理选项
+create_sections: true
+add_navigation: true
+preserve_images: true
+generate_tags: true
+
+# 标签生成配置
+max_tags_per_section: 8
+min_tags_per_section: 3
+
+# 文件名配置
+chapter_prefix: "第"
+section_prefix: "" # 小节现在使用 X.Y 格式，不需要前缀
+filename_separator: "_"
+
+# 目录结构配置
+chapters_subdir: "chapters"
+sections_subdir: "sections"
+images_subdir: "images"

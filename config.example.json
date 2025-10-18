@@ -1,0 +1,19 @@
+{
+  "source_file": "input.md",
+  "output_dir": "output",
+  "toc_filename": "目录.md",
+  
+  "create_sections": true,
+  "add_navigation": true,
+  "preserve_images": true,
+  "generate_tags": true,
+  
+  "min_tags_per_section": 3,
+  "max_tags_per_section": 8,
+  
+  "chapters_subdir": "chapters",
+  "sections_subdir": "sections",
+  "images_subdir": "images",
+  
+  "filename_separator": "_"
+}
