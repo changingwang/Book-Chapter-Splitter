@@ -1,216 +1,218 @@
-# 拆书神器 (Book Chapter Splitter)
+# Book Chapter Splitter
 
-🧠 **专为知识工作者设计的智能文档拆分工具**
+🧠 **An intelligent document splitting tool designed for knowledge workers**
 
-完美对接 [MinerU](https://github.com/opendatalab/MinerU)、[Markitdown](https://github.com/microsoft/markitdown) 等文档处理工具的输出，将转换后的学术文献、技术文档、书籍资料智能拆分为可管理的知识单元，一键生成 **Obsidian 双链笔记** 和 **智能标签体系**。
+Perfectly integrated with outputs from document processing tools like [MinerU](https://github.com/opendatalab/MinerU) and [Markitdown](https://github.com/microsoft/markitdown), this tool intelligently splits converted academic papers, technical documents, and books into manageable knowledge units, generating **Obsidian bi-directional links** and **intelligent tagging systems** with one click.
 
-## ✨ 功能特性
+## ✨ Features
 
-- 🔍 **智能结构识别**: 自动识别中文章节标题格式（第一章、第二章等）
-- 📄 **多级拆分**: 支持章节和小节的层次化拆分
-- 🏷️ **智能标签生成**: 基于 TF-IDF 和 TextRank 算法自动生成关键词标签
-- 📚 **目录生成**: 自动创建层次化的目录文档
-- 🧭 **导航链接**: 为每个文件添加返回目录的导航链接
-- 🖼️ **图片处理**: 自动处理和复制图片资源
-- ⚙️ **灵活配置**: 支持多种配置选项和处理模式
-- 🚀 **高性能**: 优化的处理流程，支持大文档处理
-- 🛡️ **错误处理**: 完善的错误恢复和容错机制
-- 💻 **命令行界面**: 简单易用的 CLI 工具
-- 🔗 **Obsidian原生兼容**: 自动生成符合Obsidian格式的双链链接和YAML前置元数据
-- 📚 **知识图谱就绪**: 输出的文件结构直接支持Obsidian图谱视图和关系分析
-- 🎯 **反向链接自动**: 自动在相关文件间建立双向引用关系
+- 🔍 **Intelligent Structure Recognition**: Automatically recognizes Chinese chapter title formats (第一章、第二章, etc.)
+- 📄 **Multi-level Splitting**: Supports hierarchical splitting of chapters and sections
+- 🏷️ **Intelligent Tag Generation**: Automatically generates keyword tags based on TF-IDF and TextRank algorithms
+- 📚 **Table of Contents Generation**: Automatically creates hierarchical table of contents
+- 🧭 **Navigation Links**: Adds navigation links to return to table of contents for each file
+- 🖼️ **Image Processing**: Automatically processes and copies image resources
+- ⚙️ **Flexible Configuration**: Supports multiple configuration options and processing modes
+- 🚀 **High Performance**: Optimized processing flow, supports large document processing
+- 🛡️ **Error Handling**: Comprehensive error recovery and fault tolerance mechanisms
+- 💻 **Command Line Interface**: Simple and easy-to-use CLI tool
+- 🔗 **Native Obsidian Compatibility**: Automatically generates bi-directional links and YAML front matter in Obsidian format
+- 📚 **Knowledge Graph Ready**: Output file structure directly supports Obsidian graph view and relationship analysis
+- 🎯 **Automatic Backlinks**: Automatically establishes bidirectional reference relationships between related files
 
-## 🔄 典型工作流程
+## 🔄 Typical Workflow
 
 ```mermaid
 graph LR
-    A[PDF/Word/网页] --> B[MinerU/Markitdown]
-    B --> C[转换后的MD文件]
-    C --> D[拆书神器]
-    D --> E[Obsidian知识库]
-    D --> F[双链关联]
-    D --> G[智能标签]
+    A[PDF/Word/Web] --> B[MinerU/Markitdown]
+    B --> C[Converted MD file]
+    C --> D[Book Chapter Splitter]
+    D --> E[Obsidian Knowledge Base]
+    D --> F[Bidirectional Links]
+    D --> G[Intelligent Tags]
 ```
-## ⚡ MinerU/Markitdown专用优化
 
-### 针对转换文档的特殊处理
-- **智能识别转换痕迹**: 自动识别和处理MinerU/Markitdown转换后的特殊格式标记
-- **图片路径修复**: 自动修正转换过程中可能出现的图片路径问题
-- **编码格式适配**: 智能处理转换后可能出现的编码问题
-- **结构增强**: 对转换后的文档结构进行增强，提升可读性
+## ⚡ MinerU/Markitdown Special Optimization
 
-### 推荐配置
+### Special Processing for Converted Documents
+- **Intelligent Recognition of Conversion Traces**: Automatically recognizes and handles special format markers after MinerU/Markitdown conversion
+- **Image Path Repair**: Automatically fixes potential image path issues during conversion
+- **Encoding Format Adaptation**: Intelligently handles potential encoding issues after conversion
+- **Structure Enhancement**: Enhances document structure after conversion to improve readability
+
+### Recommended Configuration
 ```bash
-# 针对MinerU输出优化的配置
+# Configuration optimized for MinerU output
 python -m book_splitter -i mineru_output.md -o obsidian_vault \
     --sections --tags --navigation \
     --min-tags 3 --max-tags 8
 ```
-🎯 **最佳应用场景**
-- 📖 **学术研究**: 将PDF论文、学术著作转换为可管理的知识单元
-- 💻 **技术学习**: 处理编程书籍、技术文档，建立知识体系
-- 📚 **知识管理**: 构建个人知识库，实现知识的结构化存储
-- 🔍 **内容创作**: 为写作和研究提供结构化的素材库
-- 🎓 **教学准备**: 将教材资料拆分为教学单元
 
-## 🎯 知识管理最佳实践
+## 🎯 Best Application Scenarios
+- 📖 **Academic Research**: Convert PDF papers and academic works into manageable knowledge units
+- 💻 **Technical Learning**: Process programming books and technical documents to build knowledge systems
+- 📚 **Knowledge Management**: Build personal knowledge bases for structured knowledge storage
+- 🔍 **Content Creation**: Provide structured material libraries for writing and research
+- 🎓 **Teaching Preparation**: Split teaching materials into teaching units
 
-### 1. 文件命名策略
-- 使用有意义的章节标题
-- 保持命名一致性
-- 利用标签进行多维度分类
+## 🎯 Knowledge Management Best Practices
 
-### 2. 标签体系设计
-- **主题标签**: 标明知识领域（如#人工智能 #经济学）
-- **类型标签**: 标明内容类型（如#理论 #案例 #方法）
-- **状态标签**: 标明学习状态（如#已掌握 #复习中 #待深入）
+### 1. File Naming Strategy
+- Use meaningful chapter titles
+- Maintain naming consistency
+- Utilize tags for multi-dimensional classification
 
-### 3. 双链使用建议
-- 在相关概念间建立连接
-- 记录个人理解和思考
-- 构建知识演进路径
+### 2. Tag System Design
+- **Topic Tags**: Indicate knowledge areas (e.g., #artificial-intelligence #economics)
+- **Type Tags**: Indicate content types (e.g., #theory #case-study #method)
+- **Status Tags**: Indicate learning status (e.g., #mastered #reviewing #to-explore)
 
-## 📦 快速开始
+### 3. Bi-directional Link Usage Suggestions
+- Establish connections between related concepts
+- Record personal understanding and reflections
+- Build knowledge evolution paths
 
-### 环境要求
+## 📦 Quick Start
+
+### Environment Requirements
 
 - Python 3.10+
-- 支持的操作系统：Windows、macOS、Linux
+- Supported operating systems: Windows, macOS, Linux
 
-### 安装步骤
+### Installation Steps
 
 ```bash
-# 克隆项目
+# Clone the project
 git clone https://github.com/your-username/book-chapter-splitter.git
 cd book-chapter-splitter
 
-# 创建虚拟环境（Windows）
+# Create virtual environment (Windows)
 python -m venv .venv
 
-# 安装可编辑模式
+# Install in editable mode
 pip install -e .
 
-# 安装开发依赖
+# Install development dependencies
 pip install -r requirements.txt
 pip install pytest pytest-cov
 ```
 
-### 主要依赖
+### Main Dependencies
 
-- `jieba`: 中文分词和关键词提取
-- `scikit-learn`: TF-IDF 算法支持
-- `networkx`: TextRank 算法支持
-- `click`: 命令行界面
+- `jieba`: Chinese word segmentation and keyword extraction
+- `scikit-learn`: TF-IDF algorithm support
+- `networkx`: TextRank algorithm support
+- `click`: Command line interface
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 基本用法
+### Basic Usage
 
 ```bash
-# 最简单的用法 - 只拆分章节
+# Simplest usage - only split chapters
 python -m book_splitter -i input.md -o output_dir --no-sections --no-tags --no-navigation
 
-# 完整功能 - 拆分章节和小节，生成标签和导航（默认启用所有功能）
+# Full functionality - split chapters and sections, generate tags and navigation (default enables all features)
 python -m book_splitter -i input.md -o output_dir
 ```
 
-### 输入文档格式要求
+### Input Document Format Requirements
 
-您的 markdown 文档应该遵循以下格式：
+Your markdown document should follow the following format:
 
-**⚠️ 重要格式规范：**
-- 章节标题中**不能包含下划线 `_`**，请使用空格分隔
-- 正确格式：`# 第一章 导论：对象和地位`
-- 错误格式：`# 第一章_导论：对象和地位`
-- 如果您的文档包含下划线，可以使用我们提供的 `fix_chapter_titles.py` 工具进行批量修复
+**⚠️ Important Format Specification:**
+- Chapter titles **must not contain underscores `_`**, please use spaces for separation
+- Correct format: `# 第一章 Introduction: Objects and Status`
+- Incorrect format: `# 第一章_Introduction: Objects and Status`
+- If your document contains underscores, you can use our provided `fix_chapter_titles.py` tool for batch repair
 
-📋 **详细格式要求请参考：[FORMAT_REQUIREMENTS.md](docs/FORMAT_REQUIREMENTS.md)**
+📋 **For detailed format requirements, please refer to: [FORMAT_REQUIREMENTS.md](docs/FORMAT_REQUIREMENTS.md)**
 
-**传统格式：**
-
-```markdown
-# 文档标题
-
-# 第一章 章节标题
-
-章节内容...
-
-一、小节标题
-
-小节内容...
-
-二、小节标题
-
-小节内容...
-
-# 第二章 另一个章节
-
-更多内容...
-```
-
-**新支持格式：**
+**Traditional Format:**
 
 ```markdown
-# 文档标题
+# Document Title
 
-## 一、章节标题
+# 第一章 Chapter Title
 
-章节内容...
+Chapter content...
 
-### （一）小节标题
+一、Section Title
 
-小节内容...
+Section content...
 
-### （二）小节标题
+二、Section Title
 
-小节内容...
+Section content...
 
-## 二、另一个章节
+# 第二章 Another Chapter
 
-更多内容...
+More content...
 ```
 
-支持的章节格式：
+**Newly Supported Format:**
 
-- `# 第一章 标题`、`# 第二章 标题` 等
-- `# 第1章 标题`、`# 第2章 标题` 等
-- `## 一、标题`、`## 二、标题` 等（新增支持）
+```markdown
+# Document Title
 
-支持的小节格式：
+## 一、Chapter Title
 
-- `一、标题`、`二、标题` 等
-- `1、标题`、`2、标题` 等
-- `(一)标题`、`(二)标题` 等
-- `### （一）标题`、`### （二）标题` 等（新增支持）
+Chapter content...
 
-## 📖 详细使用说明
+### （一）Section Title
 
-### 命令行选项
+Section content...
+
+### （二）Section Title
+
+Section content...
+
+## 二、Another Chapter
+
+More content...
+```
+
+Supported chapter formats:
+
+- `# 第一章 Title`, `# 第二章 Title`, etc.
+- `# 第1章 Title`, `# 第2章 Title`, etc.
+- `## 一、Title`, `## 二、Title`, etc. (newly supported)
+
+Supported section formats:
+
+- `一、Title`, `二、Title`, etc.
+- `1、Title`, `2、Title`, etc.
+- `(一)Title`, `(二)Title`, etc.
+- `### （一）Title`, `### （二）Title`, etc. (newly supported)
+
+## 📖 Detailed Usage Instructions
+
+### Command Line Options
 
 ```bash
 python -m book_splitter [OPTIONS]
 
-选项:
-  -i, --input TEXT           输入的markdown文件路径 [默认: full.md]
-  -o, --output TEXT          输出目录路径 [默认: output]
-  -c, --config TEXT          配置文件路径
-  --no-sections              禁用小节拆分，只拆分章节
-  --no-tags                  禁用标签生成
-  --no-navigation            禁用导航链接
-  --min-tags INTEGER         每个小节的最少标签数
-  --max-tags INTEGER         每个小节的最多标签数
-  --help                     显示帮助信息
+Options:
+  -i, --input TEXT           Input markdown file path [default: full.md]
+  -o, --output TEXT          Output directory path [default: output]
+  -c, --config TEXT          Configuration file path
+  --no-sections              Disable section splitting, only split chapters
+  --no-tags                  Disable tag generation
+  --no-navigation            Disable navigation links
+  --min-tags INTEGER         Minimum number of tags per section
+  --max-tags INTEGER         Maximum number of tags per section
+  --help                     Show help information
 ```
 
-### 使用示例
+### Usage Examples
 
-#### 1. 基础拆分（仅章节）
+#### 1. Basic Splitting (Chapters Only)
 
 ```bash
 python -m book_splitter -i book.md -o output --no-sections
 ```
 
-生成结构：
+Generated structure:
 
 ```
 output/
@@ -221,13 +223,13 @@ output/
     └── ...
 ```
 
-#### 2. 完整拆分（章节+小节）
+#### 2. Complete Splitting (Chapters + Sections)
 
 ```bash
 python -m book_splitter -i book.md -o output --sections
 ```
 
-生成结构：
+Generated structure:
 
 ```
 output/
@@ -242,80 +244,80 @@ output/
     └── ...
 ```
 
-#### 3. 启用所有功能
+#### 3. Enable All Features
 
 ```bash
 python -m book_splitter -i book.md -o output
 ```
 
-生成的文件将包含：
+Generated files will include:
 
-- YAML 前置元数据和标签
-- 导航链接
-- 处理后的图片资源
+- YAML front matter and tags
+- Navigation links
+- Processed image resources
 
-#### 4. 自定义标签数量
+#### 4. Custom Tag Count
 
 ```bash
 python -m book_splitter -i book.md -o output --sections --tags --min-tags 2 --max-tags 5
 ```
 
-### 输出文件格式
+### Output File Format
 
-#### 带标签的文件示例
+#### Example File with Tags
 
 ```markdown
 ---
-title: "政治权力理论"
+title: "Political Power Theory"
 type: "section"
-section_title: "政治权力理论"
-chapter_title: "第一章 政治学基础"
+section_title: "Political Power Theory"
+chapter_title: "第一章 Political Science Basics"
 level: 3
 line_range: "45-78"
 tags:
-  - 政治权力
-  - 权力理论
-  - 政治学
-  - 社会科学
+  - Political Power
+  - Power Theory
+  - Political Science
+  - Social Sciences
 ---
 
-# 政治权力理论
+# Political Power Theory
 
-政治权力是政治学研究的核心概念...
+Political power is the core concept of political science research...
 
 ---
 
-[← 返回目录](../目录.md) | _小节文件_
+[← Return to Table of Contents](../目录.md) | _Section File_
 ```
 
-#### 目录文件示例
+#### Table of Contents File Example
 
 ```markdown
-# 目录
+# Table of Contents
 
-## 📚 章节列表
+## 📚 Chapter List
 
-### [第一章 政治学基础](chapters/第一章_政治学基础.md)
+### [第一章 Political Science Basics](chapters/第一章_政治学基础.md)
 
-- [1.1 政治权力理论](sections/1.1_政治权力理论.md)
-- [1.2 政治制度分析](sections/1.2_政治制度分析.md)
+- [1.1 Political Power Theory](sections/1.1_政治权力理论.md)
+- [1.2 Political System Analysis](sections/1.2_政治制度分析.md)
 
-### [第二章 政治行为](chapters/第二章_政治行为.md)
+### [第二章 Political Behavior](chapters/第二章_政治行为.md)
 
-- [2.1 政治参与](sections/2.1_政治参与.md)
-- [2.2 政治文化](sections/2.2_政治文化.md)
+- [2.1 Political Participation](sections/2.1_政治参与.md)
+- [2.2 Political Culture](sections/2.2_政治文化.md)
 
-## 📊 文档统计
+## 📊 Document Statistics
 
-- 总章节数: 2
-- 总小节数: 4
-- 生成文件数: 7
-- 处理时间: 0.15 秒
+- Total chapters: 2
+- Total sections: 4
+- Generated files: 7
+- Processing time: 0.15 seconds
 ```
 
-## ⚙️ 配置文件
+## ⚙️ Configuration File
 
-您可以创建配置文件来保存常用设置：
+You can create configuration files to save common settings:
 
 ### config.json
 
@@ -345,40 +347,40 @@ max_tags_per_section: 8
 filename_separator: "_"
 ```
 
-使用配置文件：
+Using configuration files:
 
 ```bash
 python -m book_splitter -i book.md --config config.yaml
 python -m book_splitter -i book.md --config config.json
 ```
 
-## 🔧 高级用法
+## 🔧 Advanced Usage
 
 ### Python API
 
 ```python
 from book_splitter import BookSplitter, ProcessingConfig
 
-# 创建配置
+# Create configuration
 config = ProcessingConfig()
 config.source_file = "input.md"
 config.output_dir = "output"
 config.create_sections = True
 config.generate_tags = True
 
-# 创建处理器
+# Create processor
 splitter = BookSplitter(config)
 
-# 处理文件
+# Process file
 result = splitter.process()
 
 if result['status'] == 'success':
-    print(f"处理完成！生成了 {result['generated_files_count']} 个文件")
+    print(f"Processing complete! Generated {result['generated_files_count']} files")
 else:
-    print(f"处理失败: {result['error']}")
+    print(f"Processing failed: {result['error']}")
 ```
 
-### 批量处理
+### Batch Processing
 
 ```python
 from book_splitter import BookSplitter, ProcessingConfig
@@ -389,256 +391,247 @@ config.generate_tags = True
 
 splitter = BookSplitter(config)
 
-# 批量处理多个文件
+# Batch process multiple files
 input_files = ["book1.md", "book2.md", "book3.md"]
 results = splitter.process_batch(input_files, "batch_output")
 
 for file_path, success in results.items():
-    status = "成功" if success else "失败"
+    status = "Success" if success else "Failed"
     print(f"{file_path}: {status}")
 ```
 
-## 🎯 最佳实践
+## 🎯 Best Practices
 
-### 1. 文档准备
+### 1. Document Preparation
 
-- 确保章节标题格式一致
-- 使用标准的中文数字或阿拉伯数字
-- 保持层次结构清晰
+- Ensure chapter title formats are consistent
+- Use standard Chinese numerals or Arabic numerals
+- Maintain clear hierarchical structure
 
-### 2. 性能优化
+### 2. Performance Optimization
 
-- 对于大文档（>10MB），建议禁用标签生成以提高速度
-- 使用 SSD 存储可以显著提高处理速度
-- 批量处理时建议使用较小的批次大小
+- For large documents (>10MB), consider disabling tag generation to improve speed
+- Using SSD storage can significantly improve processing speed
+- For batch processing, recommend using smaller batch sizes
 
-### 3. 文件管理
+### 3. File Management
 
-- 定期清理输出目录
-- 使用有意义的输出目录名称
-- 备份原始文档
+- Regularly clean up output directories
+- Use meaningful output directory names
+- Backup original documents
 
-## 🐛 故障排除
+## 🐛 Troubleshooting
 
-### 常见问题
+### Common Issues
 
-#### 1. 未识别到章节
+#### 1. Chapters Not Recognized
 
-**问题**: 处理后显示"未找到有效的章节结构"
+**Problem**: After processing, shows "No valid chapter structure found"
 
-**解决方案**:
+**Solutions**:
 
-- 检查章节标题格式是否正确
-- 确保使用 `# 第一章` 或 `# 第1章` 格式
-- 验证文档编码为 UTF-8
+- Check if chapter title format is correct
+- Ensure using `# 第一章` or `# 第1章` format
+- Verify document encoding is UTF-8
 
-#### 2. 标签生成失败
+#### 2. Tag Generation Failure
 
-**问题**: 生成的标签质量不高或数量不足
+**Problem**: Generated tags are of poor quality or insufficient quantity
 
-**解决方案**:
+**Solutions**:
 
-- 调整 `--min-tags` 和 `--max-tags` 参数
-- 确保文档内容足够丰富
-- 检查是否安装了 jieba 分词库
+- Adjust `--min-tags` and `--max-tags` parameters
+- Ensure document content is rich enough
+- Check if jieba word segmentation library is installed
 
-#### 3. 文件名包含特殊字符
+#### 3. Filenames with Special Characters
 
-**问题**: 生成的文件名包含不支持的字符
+**Problem**: Generated filenames contain unsupported characters
 
-**解决方案**:
+**Solutions**:
 
-- 工具会自动清理特殊字符
-- 如果问题持续，请检查原始标题格式
-- 可以手动重命名生成的文件
+- The tool automatically cleans special characters
+- If problems persist, check original title format
+- You can manually rename generated files
 
-#### 4. 内存使用过高
+#### 4. High Memory Usage
 
-**问题**: 处理大文档时内存不足
+**Problem**: Insufficient memory when processing large documents
 
-**解决方案**:
+**Solutions**:
 
-- 禁用标签生成 (`--no-tags`)
-- 分批处理大文档
-- 增加系统内存或使用虚拟内存
+- Disable tag generation (`--no-tags`)
+- Process large documents in batches
+- Increase system memory or use virtual memory
 
-### 错误代码
+### Error Codes
 
-- `FileNotFoundError`: 输入文件不存在
-- `ValueError`: 文档格式不正确或无章节结构
-- `PermissionError`: 输出目录权限不足
-- `MemoryError`: 内存不足
+- `FileNotFoundError`: Input file does not exist
+- `ValueError`: Document format is incorrect or has no chapter structure
+- `PermissionError`: Insufficient permissions for output directory
+- `MemoryError`: Insufficient memory
 
-### 获取帮助
+### Getting Help
 
-如果遇到问题，可以：
+If you encounter problems, you can:
 
-1. 查看详细错误日志
-2. 使用 `--help` 查看所有选项
-3. 尝试最小配置测试
-4. 检查文档格式是否符合要求
+1. Check detailed error logs
+2. Use `--help` to view all options
+3. Try minimal configuration testing
+4. Check if document format meets requirements
 
-## 🧪 测试
+## 🧪 Testing
 
-### 运行测试
+### Running Tests
 
 ```bash
-# 运行所有测试
+# Run all tests
 python -m pytest tests/ -v
 
-# 运行特定测试模块
+# Run specific test modules
 python -m pytest tests/test_integration.py -v
 python -m pytest tests/test_tag_generator.py -v
 
-# 运行特定测试函数
+# Run specific test functions
 python -m pytest tests/test_integration.py::test_end_to_end_processing -v
 
-# 运行测试并显示覆盖率
+# Run tests with coverage
 python -m pytest tests/ --cov=book_splitter --cov-report=html
 ```
 
-### 测试覆盖率
+### Test Coverage
 
 ```bash
 pip install pytest-cov
 python -m pytest tests/ --cov=book_splitter --cov-report=html
 ```
 
-## 📁 项目结构
+## 📁 Project Structure
 
 ```
 book-chapter-splitter/
-├── README.md                          # 项目说明文档
-├── requirements.txt                   # Python依赖包列表
-├── setup.py                          # 安装配置文件
-├── run_splitter.py                   # 快速运行脚本
-├── config.example.json               # 配置文件示例
-├── config.example.yaml               # 配置文件示例（YAML）
-├── .gitignore                        # Git忽略文件配置
-├── LICENSE                           # 项目许可证
-├── .github/                          # GitHub工作流配置
+├── README.md                          # Project documentation
+├── requirements.txt                   # Python dependency list
+├── setup.py                          # Installation configuration
+├── run_splitter.py                   # Quick run script
+├── config.example.json               # Configuration file example
+├── config.example.yaml               # Configuration file example (YAML)
+├── .gitignore                        # Git ignore file configuration
+├── LICENSE                           # Project license
+├── .github/                          # GitHub workflow configuration
 │   └── workflows/
-│       └── python-tests.yml          # 自动化测试配置
-├── docs/                             # 文档目录
-│   ├── FORMAT_SUPPORT.md             # 支持格式说明
-│   ├── TECHNICAL_CHANGES.md          # 技术变更文档
-│   ├── FORMAT_REQUIREMENTS.md        # 格式要求规范
-│   ├── USAGE.md                      # 详细使用指南
-│   ├── TROUBLESHOOTING.md            # 故障排除指南
-│   ├── CHANGELOG.md                  # 更新日志
-│   ├── PROJECT_SUMMARY.md            # 项目总结文档
-│   └── DOCUMENTATION_UPDATE_SUMMARY.local.md  # 文档更新摘要
-├── data/                             # 数据文件目录
-│   └── demo.md                       # 演示数据文件
-├── src/                              # 源代码目录
+│       └── python-tests.yml          # Automated testing configuration
+├── docs/                             # Documentation directory
+│   ├── FORMAT_SUPPORT.md             # Supported format documentation
+│   ├── TECHNICAL_CHANGES.md          # Technical change documentation
+│   ├── FORMAT_REQUIREMENTS.md        # Format requirements specification
+│   ├── USAGE.md                      # Detailed usage guide
+│   ├── TROUBLESHOOTING.md            # Troubleshooting guide
+│   ├── CHANGELOG.md                  # Update log
+│   ├── PROJECT_SUMMARY.md            # Project summary document
+│   └── DOCUMENTATION_UPDATE_SUMMARY.local.md  # Documentation update summary
+├── data/                             # Data file directory
+│   └── demo.md                       # Demo data file
+├── src/                              # Source code directory
 │   └── book_splitter/
-│       ├── __init__.py               # 包初始化
-│       ├── __main__.py               # 模块入口
-│       ├── main.py                   # 主处理器
-│       ├── config.py                 # 配置管理
-│       ├── cli.py                    # 命令行接口
-│       ├── analyzers/                # 结构分析器
+│       ├── __init__.py               # Package initialization
+│       ├── __main__.py               # Module entry point
+│       ├── main.py                   # Main processor
+│       ├── config.py                 # Configuration management
+│       ├── cli.py                    # Command line interface
+│       ├── analyzers/                # Structure analyzers
 │       │   └── structure_analyzer.py
-│       ├── extractors/               # 内容提取器
+│       ├── extractors/               # Content extractors
 │       │   └── content_extractor.py
-│       ├── generators/               # 生成器
-│       │   ├── tag_generator.py      # 标签生成器
-│       │   └── file_generator.py     # 文件生成器
-│       ├── managers/                 # 管理器
-│       │   └── link_manager.py       # 链接管理器
-│       ├── models/                   # 数据模型
+│       ├── generators/               # Generators
+│       │   ├── tag_generator.py      # Tag generator
+│       │   └── file_generator.py     # File generator
+│       ├── managers/                 # Managers
+│       │   └── link_manager.py       # Link manager
+│       ├── models/                   # Data models
 │       │   └── __init__.py
-│       └── utils/                    # 工具函数
+│       └── utils/                    # Utility functions
 │           └── __init__.py
-├── tools/                            # 工具脚本目录
-│   ├── README.md                     # 工具使用说明
-│   └── fix_chapter_titles.py         # 章节标题格式修复工具
-└── tests/                            # 测试文件目录
+├── tools/                            # Tool scripts directory
+│   ├── README.md                     # Tool usage instructions
+│   └── fix_chapter_titles.py         # Chapter title format repair tool
+└── tests/                            # Test file directory
     ├── __init__.py
-    ├── test_basic.py                 # 基础功能测试
-    ├── test_structure_analyzer.py    # 结构分析器测试
-    ├── test_content_extractor.py     # 内容提取器测试
-    ├── test_tag_generator.py         # 标签生成器测试
-    ├── test_file_generator.py        # 文件生成器测试
-    ├── test_link_manager.py          # 链接管理器测试
-    ├── test_integration.py           # 集成测试
-    └── test_*.py                     # 其他测试文件
+    ├── test_basic.py                 # Basic functionality tests
+    ├── test_structure_analyzer.py    # Structure analyzer tests
+    ├── test_content_extractor.py     # Content extractor tests
+    ├── test_tag_generator.py         # Tag generator tests
+    ├── test_file_generator.py        # File generator tests
+    ├── test_link_manager.py          # Link manager tests
+    ├── test_integration.py           # Integration tests
+    └── test_*.py                     # Other test files
 
-注意：
-- input*/ 和 output*/ 目录会在使用过程中动态创建，已在 .gitignore 中配置忽略
-- IDE 配置文件、缓存目录等由工具自动生成的文件已在 .gitignore 中配置忽略，不纳入版本控制
+Note:
+- input*/ and output*/ directories are dynamically created during use and are configured to be ignored in .gitignore
+- IDE configuration files, cache directories, and other automatically generated files by tools are configured to be ignored in .gitignore and not included in version control
 ```
 
-## 🤝 贡献
+## 🤝 Contributing
 
-欢迎贡献代码！请遵循以下步骤：
+Contributions are welcome! Please follow these steps:
 
-1. Fork 项目
-2. 创建功能分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 创建 Pull Request
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Create a Pull Request
 
-### 开发环境设置
+### Development Environment Setup
 
 ```bash
-# 克隆项目
+# Clone the project
 git clone https://github.com/your-username/book-chapter-splitter.git
 cd book-chapter-splitter
 
-# 安装可编辑模式
+# Create virtual environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install in editable mode
 pip install -e .
 
-# 安装开发依赖
+# Install development dependencies
 pip install -r requirements.txt
-pip install pytest pytest-cov
-
-# 运行测试
-python -m pytest tests/ -v
+pip install pytest pytest-cov black flake8
 ```
 
-## 📄 许可证
+### Code Style
 
-本项目采用 MIT 许可证。详见 [LICENSE](LICENSE) 文件。
+This project uses:
+- `black` for code formatting
+- `flake8` for linting
 
-## 🔄 更新日志
+```bash
+# Format code
+black src/ tests/
 
-### v1.0.1 (2025-10-18)
+# Check code style
+flake8 src/ tests/
+```
 
-- 🚀 **新增格式支持**: 支持 `## 一、` 和 `### （一）` 格式的章节小节识别
-- � **技术改进**分: 扩展结构分析器的正则表达式模式
-- 📝 **文档更新**: 更新支持格式说明和使用示例
-- ✅ **验证测试**: 成功处理城中村改造报告等实际文档
+## 📄 License
 
-### v1.0.0 (2025-10-18)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-- ✨ 初始版本发布
-- 🔍 支持章节和小节拆分
-- 🏷️ 智能标签生成功能
-- 📚 目录和导航链接生成
-- 🖼️ 图片资源处理
-- 💻 完整的命令行界面
-- 🧪 完整的测试覆盖
-- 📖 详细的文档和示例
+## 🙏 Acknowledgments
 
-## 🙏 致谢
+- [MinerU](https://github.com/opendatalab/MinerU) for excellent PDF parsing capabilities
+- [Markitdown](https://github.com/microsoft/markitdown) for document conversion support
+- [Obsidian](https://obsidian.md/) for inspiring the knowledge management approach
+- All contributors and users of this project
 
-- [jieba](https://github.com/fxsjy/jieba) - 中文分词库
-- [scikit-learn](https://scikit-learn.org/) - 机器学习库
-- [NetworkX](https://networkx.org/) - 图论和网络分析库
-- [Click](https://click.palletsprojects.com/) - 命令行界面库
+## 📞 Contact
 
-## 📞 支持
-
-如果您在使用过程中遇到问题或有建议，请：
-
-1. 查看 [故障排除](#-故障排除) 部分
-2. 搜索现有的 [Issues](https://github.com/your-username/book-chapter-splitter/issues)
-3. 创建新的 Issue 描述您的问题
-4. 参与 [Discussions](https://github.com/your-username/book-chapter-splitter/discussions) 讨论
+If you have any questions or suggestions, please feel free to:
+- Submit an [Issue](https://github.com/your-username/book-chapter-splitter/issues)
+- Send a [Pull Request](https://github.com/your-username/book-chapter-splitter/pulls)
+- Contact us via [email](mailto:your-email@example.com)
 
 ---
 
-**享受使用书籍章节拆分器！** 🎉
-
-如果这个工具对您有帮助，请考虑给项目一个 ⭐ Star！
+⭐ If this project is helpful to you, please give us a star!
